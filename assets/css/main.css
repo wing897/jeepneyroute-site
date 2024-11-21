@@ -1348,18 +1348,13 @@ input, select, textarea {
 		}
 
 			#header nav ul li {
-				width: 100%;
+				width: 100%; 
 				padding-left: 0;
 				border-left: solid 1px #ffffff;
 			}
 
-				#header nav ul li:first-child {
-					width: 100%;
+				#header nav ul li:first-child { 
 					border-left: 0;
-				}
-
-				#header nav ul li:not(:first-child) {
-					flex: 1;
 				}
 
 				#header nav ul li a {
@@ -1372,11 +1367,6 @@ input, select, textarea {
 					letter-spacing: 0.2rem;
 					font-size: 0.8rem;
 					border-bottom: 0;
-					text-align: center;
-				}
-
-				#header nav ul li:not(:first-child) a {
-					width: 100%;
 				}
 
 					#header nav ul li a:hover {
