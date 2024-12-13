@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
+	Template derived from Dimension by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
@@ -25,7 +25,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Jeepney Route Guide for Metro Cebu</h1>
-								<p>plan your travels seamlessly</p>
+								<p> plan your travels </p>
 							</div>
 						</div>
 						<nav>
@@ -34,7 +34,7 @@
 							</ul>
 							<ul>
 								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#credits">Credits</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -49,38 +49,29 @@
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<label for="origin">Origin</label>
-											<select name="origin" id="origin">
+                                            <label for="origin">Origin</label>
+                                            <select name="origin" id="origin">
 												<option value="none"></option>
-												<option value="UC">University of Cebu</option>
-												<option value="UV">University of Visayas</option>
-												<option value="P1">Pier 1</option>
-												<option value="P2">Pier 2</option>
-												<option value="P3">Pier 3</option>
-												<option value="CSBT">Cebu South Bus Terminal</option>
-												<option value="EM">E-mall</option>
-											</select>
-										</div>
-										<div class="field half">
-											<label for="destination">Destination</label>
-											<select name="destination" id="destination">
+                                                <!-- Dynamically populated -->
+                                            </select>
+                                        </div>
+                                        <div class="field half">
+                                            <label for="destination">Destination</label>
+                                            <select name="destination" id="destination">
 												<option value="none"></option>
-												<option value="UC">University of Cebu</option>
-												<option value="UV">University of Visayas</option>
-												<option value="P1">Pier 1</option>
-												<option value="P2">Pier 2</option>
-												<option value="P3">Pier 3</option>
-												<option value="CSBT">Cebu South Bus Terminal</option>
-												<option value="EM">E-mall</option>
-											</select>
-										</div>
+                                                <!-- Dynamically populated -->
+                                            </select>
+                                        </div>
 									</div>
-									<div class="proceed">
-										<li><a href="#proceed">Proceed</a></li>
+									<div class="proc-button">
+										<a>Proceed</a>
 									</div>
 									<ul class="actions">
-										<li><input type="reset" value="Reset" /></li>
+										<li><input type="reset" value="Reset" id="reset-button" /></li>
 									</ul>
+									<div id="proceed">
+										<!-- Dynamically populated -->
+									</div>
 									
 								</form>
 							</article>
@@ -105,33 +96,17 @@
 								<p>	This website is aimed to commuters or potential travelers in
 									Metro Cebu, offering a guide to possible routes between a point of <em>origin</em> and a
 									<em>destination</em>. Click on the '<em>Get Route</em>' button at the homepage and input these locations, 
-									and the appropriate jeepney routes will be displayed.</p>
+									and suggestions for the jeepney routes will be displayed.</p>
 						
 							</article>
 
 						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
+							<article id="credits">
+								<h2 class="major">Credits</h2>
+								<p>This website was made possible with the help of the following: </p>
+                                <p>> HTML5 UP for the website template</p>
+                                <p>> codebasics youtube channel for the lesson on graph data structure</p>
+                                <p>> Orbital 101 Studio in Pexels Studio for the background photo</p>
 							</article>
 
 						<!-- Elements -->
@@ -172,5 +147,370 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 			<script src="https://kit.fontawesome.com/85c5e8cc5e.js" crossorigin="anonymous"></script>
 
+            <script>
+                // Sample data (to add later)
+                const routes = [
+                { origin: 'Parkmall', destination: 'SM City Cebu', jeepney: '01K' },
+                { origin: 'SM City Cebu', destination: 'Cebu Institute of Technology University', jeepney: '01K' },
+                { origin: 'Cebu Institute of Technology University', destination: 'Colonnade Supermarket', jeepney: '01K' },
+                { origin: 'Colonnade Supermarket', destination: 'Elizabeth Mall', jeepney: '01K' },
+                { origin: 'Elizabeth Mall', destination: 'Southwestern University', jeepney: '01K' },
+                { origin: 'Southwestern University', destination: 'Sacred Heart Hospital', jeepney: '01K' },
+                { origin: 'Sacred Heart Hospital', destination: 'Southwestern University', jeepney: '01K' },
+                { origin: 'Southwestern University', destination: 'Elizabeth Mall', jeepney: '01K' },
+                { origin: 'Elizabeth Mall', destination: 'Colonnade Supermarket', jeepney: '01K' },
+                { origin: 'Colonnade Supermarket', destination: 'University of Visayas', jeepney: '01K' },
+                { origin: 'University of Visayas', destination: 'SM City Cebu', jeepney: '01K' },
+                { origin: 'SM City Cebu', destination: 'Cebu Doctors University - Mandaue', jeepney: '01K' },
+                { origin: 'Cebu Doctors University - Mandaue', destination: 'Parkmall', jeepney: '01K' },
+
+                { origin: 'University of San Carlos South', destination: 'Metro Colon', jeepney: '01C' },
+                { origin: 'Metro Colon', destination: 'Colonnade Supermarket', jeepney: '01C' },
+                { origin: 'Colonnade Supermarket', destination: 'University of Visayas', jeepney: '01C' },
+                { origin: 'University of Visayas', destination: 'Pier 4', jeepney: '01C' },
+                { origin: 'Pier 4', destination: 'Pier 3', jeepney: '01C' },
+                { origin: 'Pier 3', destination: 'Cebu Technological University Main', jeepney: '01C' },
+                { origin: 'Cebu Technological University Main', destination: 'University of Cebu Main', jeepney: '01C' },
+                { origin: 'University of Cebu Main', destination: 'Elizabeth Mall', jeepney: '01C' },
+                { origin: 'Elizabeth Mall', destination: 'University of San Carlos South', jeepney: '01C' },
+
+                { origin: 'Cebu City Medical Center', destination: 'Cebu South Bus Terminal', jeepney: '02B' },
+                { origin: 'Cebu South Bus Terminal', destination: 'Elizabeth Mall', jeepney: '02B' },
+                { origin: 'Elizabeth Mall', destination: 'Metro Colon', jeepney: '02B' },
+                { origin: 'Metro Colon', destination: 'Colonnade Supermarket', jeepney: '02B' },
+                { origin: 'Colonnade Supermarket', destination: 'University of Visayas', jeepney: '02B' },
+                { origin: 'University of Visayas', destination: 'Pier 1', jeepney: '02B' },
+                { origin: 'Pier 1', destination: 'Pier 2', jeepney: '02B' },
+                { origin: 'Pier 2', destination: 'Pier 3', jeepney: '02B' },
+                { origin: 'Pier 3', destination: 'Pier 4', jeepney: '02B' },
+                { origin: 'Pier 4', destination: 'Robinsons Galleria Cebu', jeepney: '02B' },
+                { origin: 'Robinsons Galleria Cebu', destination: 'Cebu City Health Center', jeepney: '02B' },
+                { origin: 'Cebu City Health Center', destination: 'Museo Sugbo', jeepney: '02B' },
+                { origin: 'Museo Sugbo', destination: 'GV Tower Hotel', jeepney: '02B' },
+                { origin: 'GV Tower Hotel', destination: 'University of Cebu Main', jeepney: '02B' },
+
+                { origin: 'Sykes Asia', destination: 'Citi Park Hotel', jeepney: '03A' },
+                { origin: 'Citi Park Hotel', destination: 'Sorroso International Hotel', jeepney: '03A' },
+                { origin: 'Sorroso International Hotel', destination: 'Castle Peak Hotel', jeepney: '03A' },
+                { origin: 'Castle Peak Hotel', destination: 'Pope John Paul II Ave', jeepney: '03A' },
+                { origin: 'Pope John Paul II Ave', destination: 'Carmelite Monastery of Cebu', jeepney: '03A' },
+                { origin: 'Carmelite Monastery of Cebu', destination: 'St Joseph Parish', jeepney: '03A' },
+                { origin: 'St Joseph Parish', destination: 'The Persimmon', jeepney: '03A' },
+                { origin: 'The Persimmon', destination: 'Carreta Cemetery', jeepney: '03A' },
+                { origin: 'Carreta Cemetery', destination: 'Museo Sugbo', jeepney: '03A' },
+                { origin: 'Museo Sugbo', destination: 'Cebu Technological University Main', jeepney: '03A' },
+                { origin: 'Cebu Technological University Main', destination: 'Carbon Public Market', jeepney: '03A' },
+                { origin: 'Carbon Public Market', destination: 'Cebu City Hall', jeepney: '03A' },
+                { origin: 'Cebu City Hall', destination: 'Metropolitan Cebu Water District', jeepney: '03A' },
+                { origin: 'Metropolitan Cebu Water District', destination: 'Cebu Technological University Main', jeepney: '03A' },
+                { origin: 'Cebu Technological University Main', destination: 'Museo Sugbo', jeepney: '03A' },
+                { origin: 'Museo Sugbo', destination: 'Carreta Cemetery', jeepney: '03A' },
+                { origin: 'Carreta Cemetery', destination: 'The Persimmon', jeepney: '03A' },
+                { origin: 'The Persimmon', destination: 'St Joseph Parish', jeepney: '03A' },
+                { origin: 'St Joseph Parish', destination: 'Carmelite Monastery of Cebu', jeepney: '03A' },
+                { origin: 'Carmelite Monastery of Cebu', destination: 'Castle Peak Hotel', jeepney: '03A' },
+                { origin: 'Castle Peak Hotel', destination: 'Sorroso International Hotel', jeepney: '03A' },
+                { origin: 'Sorroso International Hotel', destination: 'Citi Park Hotel', jeepney: '03A' },
+                { origin: 'Citi Park Hotel', destination: 'Sykes Asia', jeepney: '03A' },
+
+                { origin: 'Waterfront Cebu City Hotel & Casino', destination: 'San Carlos Seminary Complex', jeepney: '03L' },
+                { origin: 'San Carlos Seminary Complex', destination: 'Carmelite Monastery of Cebu', jeepney: '03L' },
+                { origin: 'Carmelite Monastery of Cebu', destination: 'St Joseph Parish', jeepney: '03L' },
+                { origin: 'St Joseph Parish', destination: 'The Persimmon', jeepney: '03L' },
+                { origin: 'The Persimmon', destination: 'Carreta Cemetery', jeepney: '03L' },
+                { origin: 'Carreta Cemetery', destination: 'Museo Sugbo', jeepney: '03L' },
+                { origin: 'Museo Sugbo', destination: 'Cebu Technological University Main', jeepney: '03L' },
+                { origin: 'Cebu Technological University Main', destination: 'Carbon Public Market', jeepney: '03L' },
+                { origin: 'Carbon Public Market', destination: 'Cebu City Hall', jeepney: '03L' },
+                { origin: 'Cebu City Hall', destination: 'Metropolitan Cebu Water District', jeepney: '03L' },
+                { origin: 'Metropolitan Cebu Water District', destination: 'Cebu Technological University Main', jeepney: '03L' },
+                { origin: 'Cebu Technological University Main', destination: 'Museo Sugbo', jeepney: '03L' },
+                { origin: 'Museo Sugbo', destination: 'Carreta Cemetery', jeepney: '03L' },
+                { origin: 'Carreta Cemetery', destination: 'The Persimmon', jeepney: '03L' },
+
+                { origin: 'Ayala Center Cebu', destination: 'Landers Superstore Cebu', jeepney: '03Q' },
+                { origin: 'Landers Superstore Cebu', destination: 'SM City Cebu', jeepney: '03Q' },
+                { origin: 'SM City Cebu', destination: 'Landers Superstore Cebu', jeepney: '03Q' },
+                { origin: 'Landers Superstore Cebu', destination: 'Ayala Center Cebu', jeepney: '03Q' },
+
+                { origin: 'Busay', destination: 'Marco Polo Hotel', jeepney: '04I' },
+                { origin: 'Marco Polo Hotel', destination: 'JY Square Mall', jeepney: '04I' },
+                { origin: 'JY Square Mall', destination: 'The Church of Jesus Christ of Latter-day Saints Temple', jeepney: '04I' },
+                { origin: 'The Church of Jesus Christ of Latter-day Saints Temple', destination: 'Lahug Brgy Hall', jeepney: '04I' },
+                { origin: 'Lahug Brgy Hall', destination: 'University of the Philippines Cebu', jeepney: '04I' },
+                { origin: 'University of the Philippines Cebu', destination: 'Harolds Hotel Cebu', jeepney: '04I' },
+                { origin: 'Harolds Hotel Cebu', destination: 'Escario Central Mall', jeepney: '04I' },
+                { origin: 'Escario Central Mall', destination: 'Cebu Provincial Capitol', jeepney: '04I' },
+                { origin: 'Cebu Provincial Capitol', destination: 'Cebu Doctors University Hospital', jeepney: '04I' },
+                { origin: 'Cebu Doctors University Hospital', destination: 'Abellana Sports Complex', jeepney: '04I' },
+                { origin: 'Abellana Sports Complex', destination: 'GV Tower Hotel', jeepney: '04I' },
+                { origin: 'GV Tower Hotel', destination: 'University of Cebu Main', jeepney: '04I' },
+                { origin: 'University of Cebu Main', destination: 'Carbon Public Market', jeepney: '04I' },
+
+                { origin: 'Carbon Public Market', destination: 'Cebu City Hall', jeepney: '04I' },
+                { origin: 'Cebu City Hall', destination: 'Metropolitan Cebu Water District', jeepney: '04I' },
+                { origin: 'Metropolitan Cebu Water District', destination: 'Cebu Metropolitan Cathedral', jeepney: '04I' },
+                { origin: 'Cebu Metropolitan Cathedral', destination: 'University of Visayas', jeepney: '04I' },
+                { origin: 'University of Visayas', destination: 'Cebu Institute of Medicine', jeepney: '04I' },
+                { origin: 'Cebu Institute of Medicine', destination: 'Mango Square Mall', jeepney: '04I' },
+                { origin: 'Mango Square Mall', destination: 'Horizon 101', jeepney: '04I' },
+                { origin: 'Horizon 101', destination: 'Fooda Saversmart', jeepney: '04I' },
+                { origin: 'Fooda Saversmart', destination: 'University of San Carlos North', jeepney: '04I' },
+                { origin: 'University of San Carlos North', destination: 'Colegio de la Inmaculada Concepcion', jeepney: '04I' },
+                { origin: 'Colegio de la Inmaculada Concepcion', destination: 'Asilo De La Milagrosa', jeepney: '04I' },
+                { origin: 'Asilo De La Milagrosa', destination: 'Royal Concourse Gourmet Mall', jeepney: '04I' },
+                { origin: 'Royal Concourse Gourmet Mall', destination: 'Golden Peak Hotel', jeepney: '04I' },
+                { origin: 'Golden Peak Hotel', destination: 'University of the Philippines Cebu', jeepney: '04I' },
+                { origin: 'University of the Philippines Cebu', destination: 'Lahug Brgy Hall', jeepney: '04I' },
+                { origin: 'Lahug Brgy Hall', destination: 'The Church of Jesus Christ of Latter-day Saints Temple', jeepney: '04I' },
+                { origin: 'The Church of Jesus Christ of Latter-day Saints Temple', destination: 'JY Square Mall', jeepney: '04I' },
+                { origin: 'JY Square Mall', destination: 'Marco Polo Hotel', jeepney: '04I' },
+                { origin: 'Marco Polo Hotel', destination: 'Busay', jeepney: '04I' },
+
+                { origin: 'JY Square Mall', destination: 'University of Southern Philippines', jeepney: '04M' },
+                { origin: 'University of Southern Philippines', destination: 'IT Park', jeepney: '04M' },
+                { origin: 'IT Park', destination: 'Waterfront Cebu City Hotel & Casino', jeepney: '04M' },
+                { origin: 'Waterfront Cebu City Hotel & Casino', destination: 'Ayala Center Cebu', jeepney: '04M' },
+                { origin: 'Ayala Center Cebu', destination: 'University of the Philippines Cebu', jeepney: '04M' },
+                { origin: 'University of the Philippines Cebu', destination: 'Lahug Brgy Hall', jeepney: '04M' },
+                { origin: 'Lahug Brgy Hall', destination: 'The Church of Jesus Christ of Latter-day Saints Temple', jeepney: '04M' },
+                { origin: 'The Church of Jesus Christ of Latter-day Saints Temple', destination: 'JY Square Mall', jeepney: '04M' },
+
+                { origin: 'Guadalupe Church', destination: 'Fooda Guadalupe', jeepney: '06C' },
+                { origin: 'Fooda Guadalupe', destination: 'Professional Regulations Commission (PRC) Office', jeepney: '06C' },
+                { origin: 'Professional Regulations Commission (PRC) Office', destination: 'Vicente Sotto Hospital', jeepney: '06C' },
+                { origin: 'Vicente Sotto Hospital', destination: 'Abellana Sports Complex', jeepney: '06C' },
+                { origin: 'Abellana Sports Complex', destination: 'Metro Colon', jeepney: '06C' },
+                { origin: 'Metro Colon', destination: 'Carbon Public Market', jeepney: '06C' },
+                { origin: 'Carbon Public Market', destination: 'Cebu City Hall', jeepney: '06C' },
+                { origin: 'Cebu City Hall', destination: 'Metropolitan Cebu Water District', jeepney: '06C' },
+                { origin: 'Basilica Minore del Sto. Niño', destination: 'Metro Colon', jeepney: '06C' },
+                { origin: 'Metro Colon', destination: 'Abellana Sports Complex', jeepney: '06C' },
+                { origin: 'Abellana Sports Complex', destination: 'Vicente Sotto Hospital', jeepney: '06C' },
+                { origin: 'Vicente Sotto Hospital', destination: 'Professional Regulations Commission (PRC) Office', jeepney: '06C' },
+                { origin: 'Professional Regulations Commission (PRC) Office', destination: 'Fooda Guadalupe', jeepney: '06C' },
+                { origin: 'Fooda Guadalupe', destination: 'Guadalupe Church', jeepney: '06C' },
+
+                { origin: 'Guadalupe Church', destination: 'Fooda Guadalupe', jeepney: '06G' },
+                { origin: 'Fooda Guadalupe', destination: 'Professional Regulations Commission (PRC) Office', jeepney: '06G' },
+                { origin: 'Professional Regulations Commission (PRC) Office', destination: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', jeepney: '06G' },
+                { origin: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', destination: 'Calamba Cemetery', jeepney: '06G' },
+                { origin: 'Calamba Cemetery', destination: 'University of San Carlos South', jeepney: '06G' },
+                { origin: 'University of San Carlos South', destination: 'Miller Hospital', jeepney: '06G' },
+                { origin: 'Miller Hospital', destination: 'Pasil Fish Market', jeepney: '06G' },
+                { origin: 'Pasil Fish Market', destination: 'Don Carlos Gothong High School', jeepney: '06G' },
+                { origin: 'Salazar Colleges of Science and Institute Of Technology', destination: 'University of San Carlos South', jeepney: '06G' },
+                { origin: 'University of San Carlos South', destination: 'Calamba Cemetery', jeepney: '06G' },
+                { origin: 'Calamba Cemetery', destination: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', jeepney: '06G' },
+                { origin: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', destination: 'Professional Regulations Commission (PRC) Office', jeepney: '06G' },
+                { origin: 'Professional Regulations Commission (PRC) Office', destination: 'Fooda Guadalupe', jeepney: '06G' },
+                { origin: 'Fooda Guadalupe', destination: 'Guadalupe Church', jeepney: '06G' },
+
+                { origin: 'SM City Cebu', destination: 'St Joseph Parish', jeepney: '06H' },
+                { origin: 'St Joseph Parish', destination: 'Carmelite Monastery of Cebu', jeepney: '06H' },
+                { origin: 'Carmelite Monastery of Cebu', destination: 'Pope John Paul II Ave', jeepney: '06H' },
+                { origin: 'Pope John Paul II Ave', destination: 'Keppel Tower Cebu Business Park', jeepney: '06H' },
+                { origin: 'Keppel Tower Cebu Business Park', destination: 'Ayala Center Cebu', jeepney: '06H' },
+                { origin: 'Ayala Center Cebu', destination: 'Hotel Elizabeth Cebu', jeepney: '06H' },
+                { origin: 'Hotel Elizabeth Cebu', destination: 'University of San Carlos - BED Montessori Academy', jeepney: '06H' },
+                { origin: 'University of San Carlos - BED Montessori Academy', destination: 'Fooda Saversmart', jeepney: '06H' },
+                { origin: 'Fooda Saversmart', destination: 'Horizon 101', jeepney: '06H' },
+                { origin: 'Horizon 101', destination: 'Mango Square Mall', jeepney: '06H' },
+                { origin: 'Mango Square Mall', destination: 'Fuente Osmeña Circle', jeepney: '06H' },
+                { origin: 'Fuente Osmeña Circle', destination: 'Vicente Sotto Hospital', jeepney: '06H' },
+                { origin: 'Vicente Sotto Hospital', destination: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', jeepney: '06H' },
+                { origin: 'Securities and Exchange Commission (SEC) - Cebu Extension Office', destination: 'Professional Regulations Commission (PRC) Office', jeepney: '06H' },
+                { origin: 'Professional Regulations Commission (PRC) Office', destination: 'Fooda Guadalupe', jeepney: '06H' },
+                { origin: 'Fooda Guadalupe', destination: 'Guadalupe Church', jeepney: '06H' },
+                ];
+
+                async function fetchLocations() {
+                    let origins = new Set();
+                    let destinations = new Set();
+
+                    routes.forEach(route => {
+                        origins.add(route.origin);
+                        destinations.add(route.destination);
+                    });
+
+                    origins = Array.from(origins).sort();
+                    destinations = Array.from(destinations).sort();
+        
+                    const originDropdown = document.getElementById('origin');
+                    const destinationDropdown = document.getElementById('destination');
+
+                    // Populate origin dropdown
+                    origins.forEach(origin => {
+                        const option = document.createElement('option');
+                        option.value = origin;
+                        option.textContent = origin;
+                        originDropdown.appendChild(option)
+                    });
+        
+                    // Populate destination dropdown
+                    destinations.forEach(destination => {
+                        const option = document.createElement('option');
+                        option.value = destination;
+                        option.textContent = destination;
+                        destinationDropdown.appendChild(option);
+                    });
+                }
+            
+                // Call fetchLocations when the page loads
+                document.addEventListener('DOMContentLoaded', fetchLocations);
+                
+                //function for recursive iteration
+                class Graph {
+                    constructor(weightedEdges) {
+                        this.weightedEdges = weightedEdges;
+                        this.graphDict = {};
+
+                        // Convert weightedEdges to graphDict
+                        for (let { origin, destination, jeepney } of weightedEdges) {
+                            let weightArr = [destination, jeepney];
+                            if (origin in this.graphDict) {
+                                this.graphDict[origin].push(weightArr);
+                            } else {
+                                this.graphDict[origin] = [weightArr];
+                            }
+                        }
+                        console.log("Route Dictionary:", this.graphDict);
+                    }
+
+                    getPaths(start, end, path = [], jeep = []) {
+                        path = path.concat([start]);
+
+                        if (start === end) {
+                            return [[path], [jeep.slice()]];
+                        }
+
+                        if (!(start in this.graphDict)) {
+                            return [[], []];
+                        }
+                        
+                        let paths = [];
+                        let jeeps = [];
+
+                        for (let node of this.graphDict[start]) {
+                            if (!path.includes(node[0])) {
+                                let newJeep = jeep.concat(node[1]);
+                                let [newPaths, newJeeps] = this.getPaths(node[0], end, path, newJeep);
+                                newPaths.forEach(p => paths.push(p));
+                                newJeeps.forEach(j => jeeps.push(j));
+                            }
+                        }
+                        return [paths, jeeps];
+                    }
+                }
+
+                function simplifyPathsAndJeeps(paths, jeeps) {
+                    let simplifiedPaths = [];
+                    let simplifiedJeeps = [];
+
+                    for (let i = 0; i < paths.length; i++) {
+                        let path = paths[i];
+                        let jeepPath = jeeps[i];
+
+                        let simplifiedPath = [path[0]];
+                        let simplifiedJeepPath = [jeepPath[0]];
+
+                        for (let j = 1; j < jeepPath.length; j++) {
+                            if (jeepPath[j] !== jeepPath[j - 1]) {
+                                simplifiedPath.push(path[j]);
+                                simplifiedJeepPath.push(jeepPath[j]);
+                            }
+                        }
+
+                        simplifiedPath.push(path[path.length - 1]);
+                        simplifiedPaths.push(simplifiedPath);
+                        simplifiedJeeps.push(simplifiedJeepPath);
+                    }
+
+                    return [simplifiedPaths, simplifiedJeeps];
+                }
+
+                function leastElement(routes) {
+                    const sortedRoutes = routes.sort((a, b) => a.length - b.length);
+                    return sortedRoutes.slice(0, 3);
+                }
+
+                function convertToTuples(simplifiedPaths, simplifiedJeeps) {
+                    let result = [];
+
+                    for (let i = 0; i < simplifiedPaths.length; i++) {
+                        let path = simplifiedPaths[i];
+                        let jeepPath = simplifiedJeeps[i];
+
+                        for (let j = 0; j < jeepPath.length; j++) {
+                            let tuple = {
+                                origin: path[j],
+                                destination: path[j + 1] || path[j],
+                                jeepney: jeepPath[j]
+                            };
+                            result.push(tuple);
+                        }
+                    }
+                    return result;
+                }
+
+				// To get possible Jeepney Routes from input origin & destination
+				async function fetchRoutes() {
+                    // Get selected origin and destination
+                    let origin = document.getElementById('origin').value;
+                    let destination = document.getElementById('destination').value;
+                    
+                    let graph = new Graph(routes);
+                    let [paths, jeeps] = graph.getPaths(origin, destination);
+                    [paths, jeeps] = simplifyPathsAndJeeps(paths,jeeps);
+                    let result = convertToTuples(leastElement(paths), leastElement(jeeps));
+
+                    let proceedSection = document.getElementById('proceed');
+                    
+                    // Clear previous results
+                    proceedSection.innerHTML = '<h2 class="major">Jeepney Route Suggestion</h2>';
+                    
+                    if (result.length === 0) {
+                        const noRoutesMessage = document.createElement('p');
+                        noRoutesMessage.textContent = "No routes available.";
+                        proceedSection.appendChild(noRoutesMessage);
+                    } else {
+                        const routesContainer = document.createElement('div');
+                        let n = 1;
+                        result.forEach(route => {
+                            const list = document.createElement('ul');
+                            const listItem = document.createElement('li');
+
+                            if(route.origin == origin){
+                                let routeNum = document.createElement('h3');
+                                routeNum.textContent = `Route # ${n}`;
+                                routesContainer.appendChild(routeNum);
+                            }
+
+                            listItem.textContent = `From ${route.origin} to ${route.destination} via ${route.jeepney}`;
+                            list.appendChild(listItem);
+
+                            routesContainer.appendChild(list);
+
+                            if(route.destination == destination){
+                                n = n+1;
+                                routesContainer.appendChild(document.createElement('br'));
+                            }
+                        });
+                    proceedSection.appendChild(routesContainer);
+                    }
+                }
+
+				// Add click event listener to the Proceed link
+				document.querySelector('.proc-button a').addEventListener('click', (e) => {
+					e.preventDefault(); // Prevent default link behavior
+					fetchRoutes();
+				});
+
+				// Handle Reset button click
+				document.getElementById('reset-button').addEventListener('click', () => {
+					document.getElementById('proceed').innerHTML = ''; // Clear results
+				});				
+			</script>
+            
 	</body>
 </html>
